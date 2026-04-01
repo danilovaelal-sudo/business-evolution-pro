@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
-        serif: ["Playfair Display", "serif"],
+        serif: ["Roboto", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -80,11 +80,16 @@ export default {
           "0%": { opacity: "0", transform: "translateY(30px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "cursor-blink": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-up": "fade-up 0.7s ease-out forwards",
+        "cursor-blink": "cursor-blink 0.8s step-end infinite",
       },
     },
   },

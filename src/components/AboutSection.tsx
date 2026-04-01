@@ -1,5 +1,4 @@
 import aboutImg from "@/assets/about.jpg";
-import consultationImg from "@/assets/consultation.jpg";
 
 const facts = [
   "Психолог, бизнес-трекер, бизнес-тренер, консультант",
@@ -33,17 +32,11 @@ const AboutSection = () => (
           </ul>
         </div>
 
-        <div className="animate-on-scroll order-1 lg:order-2 grid grid-cols-2 gap-4">
+        <div className="animate-on-scroll order-1 lg:order-2 flex justify-center">
           <img
             src={aboutImg}
             alt="Евгения Сергеева"
-            className="rounded-xl object-cover aspect-[3/4] w-full"
-            loading="lazy"
-          />
-          <img
-            src={consultationImg}
-            alt="Консультация с клиентом"
-            className="rounded-xl object-cover aspect-[3/4] w-full mt-8"
+            className="rounded-2xl object-cover aspect-[3/4] w-full max-w-md shadow-lg"
             loading="lazy"
           />
         </div>
