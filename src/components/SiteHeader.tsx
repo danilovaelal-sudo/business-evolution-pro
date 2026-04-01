@@ -71,7 +71,7 @@ const SiteHeader = () => {
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden bg-background/98 backdrop-blur-md border-t border-border">
+        <div className="lg:hidden bg-background border-t border-border">
           <div className="container py-6 flex flex-col gap-4">
             {navItems.map((item) => (
               <button
