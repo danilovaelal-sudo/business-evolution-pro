@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import TypewriterHeading from "@/components/TypewriterHeading";
 
 const results = [
