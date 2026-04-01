@@ -1,4 +1,4 @@
-import { GraduationCap, BookOpen } from "lucide-react";
+import { Award, BookMarked } from "lucide-react";
 import TypewriterHeading from "@/components/TypewriterHeading";
 
 const higher = [
