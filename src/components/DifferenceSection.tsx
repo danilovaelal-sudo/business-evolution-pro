@@ -1,4 +1,5 @@
 import differenceImg from "@/assets/difference.jpg";
+import TypewriterHeading from "@/components/TypewriterHeading";
 
 const advantages = [
   "Сочетание бизнес-трекинга, психологии и обучающей методологии",
