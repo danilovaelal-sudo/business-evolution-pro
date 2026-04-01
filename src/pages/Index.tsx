@@ -9,6 +9,7 @@ import ProcessSection from "@/components/ProcessSection";
 import MidCTA from "@/components/MidCTA";
 import ResultsSection from "@/components/ResultsSection";
 import AboutSection from "@/components/AboutSection";
+import EducationSection from "@/components/EducationSection";
 import NotForSection from "@/components/NotForSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
