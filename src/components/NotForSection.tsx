@@ -1,4 +1,5 @@
 import { X } from "lucide-react";
+import TypewriterHeading from "@/components/TypewriterHeading";
 
 const items = [
   "Ищете волшебную кнопку и быстрый результат без усилий",
