@@ -1,16 +1,40 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import SiteHeader from "@/components/SiteHeader";
+import HeroSection from "@/components/HeroSection";
+import ProblemsSection from "@/components/ProblemsSection";
+import HelpSection from "@/components/HelpSection";
+import DifferenceSection from "@/components/DifferenceSection";
+import ProcessSection from "@/components/ProcessSection";
+import MidCTA from "@/components/MidCTA";
+import ResultsSection from "@/components/ResultsSection";
+import AboutSection from "@/components/AboutSection";
+import NotForSection from "@/components/NotForSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import FAQSection from "@/components/FAQSection";
+import CTASection from "@/components/CTASection";
+import SiteFooter from "@/components/SiteFooter";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  useScrollAnimation();
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen bg-background">
+      <SiteHeader />
+      <HeroSection />
+      <ProblemsSection />
+      <HelpSection />
+      <DifferenceSection />
+      <ProcessSection />
+      <MidCTA />
+      <ResultsSection />
+      <AboutSection />
+      <NotForSection />
+      <TestimonialsSection />
+      <FAQSection />
+      <CTASection />
+      <SiteFooter />
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
