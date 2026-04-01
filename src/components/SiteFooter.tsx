@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, Mail, Send } from "lucide-react";
+import { Phone, Mail, MessageCircle } from "lucide-react";
 
 const SiteFooter = () => {
   const [showPrivacy, setShowPrivacy] = useState(false);
