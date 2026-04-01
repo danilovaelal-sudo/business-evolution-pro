@@ -1,5 +1,5 @@
 import { useState, FormEvent } from "react";
-import { MessageCircle, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { MessageCircle, CheckCircle2, AlertCircle, Loader2, ArrowRight } from "lucide-react";
 import portrait3 from "@/assets/portrait3.jpg";
 
 const CTASection = () => {
@@ -29,21 +29,16 @@ const CTASection = () => {
   const handleSubmit = async (ev: FormEvent) => {
     ev.preventDefault();
     if (honeypot) return;
-
     const validationErrors = validate();
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length > 0) return;
-
     setStatus("loading");
-
     try {
-      // Send form data via mailto as fallback
       const subject = encodeURIComponent("Заявка на сопровождение от " + formData.name);
       const body = encodeURIComponent(
         `Имя: ${formData.name}\nТелефон: ${formData.phone}\nEmail: ${formData.email}\nЗапрос: ${formData.request}\nУдобное время: ${formData.time}`
       );
       window.open(`mailto:eu-25@mail.ru?subject=${subject}&body=${body}`, "_self");
-
       setStatus("success");
     } catch {
       setStatus("error");
@@ -52,24 +47,22 @@ const CTASection = () => {
 
   const updateField = (field: string, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
-    if (errors[field]) setErrors((prev) => {
-      const next = { ...prev };
-      delete next[field];
-      return next;
-    });
+    if (errors[field]) setErrors((prev) => { const next = { ...prev }; delete next[field]; return next; });
   };
+
+  const inputClasses = "w-full rounded-md border border-border/60 bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-accent/40 focus:ring-1 focus:ring-accent/20 transition-all duration-300";
 
   if (status === "success") {
     return (
       <section className="section-padding" id="contact">
         <div className="container">
           <div className="max-w-xl mx-auto text-center animate-on-scroll">
-            <CheckCircle2 size={48} className="text-accent mx-auto mb-6" />
-            <h2 className="font-serif text-3xl font-semibold text-foreground mb-4">
+            <CheckCircle2 size={40} strokeWidth={1.5} className="text-accent mx-auto mb-6" />
+            <h2 className="font-serif text-4xl font-semibold text-foreground mb-4">
               Заявка отправлена
             </h2>
-            <p className="text-muted-foreground text-lg">
-              Спасибо за доверие. Я свяжусь с вами в ближайшее время, чтобы обсудить вашу ситуацию и определить следующий шаг.
+            <p className="text-muted-foreground text-base leading-relaxed">
+              Спасибо за доверие. Я свяжусь с вами в ближайшее время, чтобы обсудить вашу ситуацию.
             </p>
           </div>
         </div>
@@ -78,14 +71,15 @@ const CTASection = () => {
   }
 
   return (
-    <section className="section-padding" id="contact">
+    <section className="section-padding relative" id="contact">
       <div className="container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="animate-on-scroll">
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-6">
-              Начните с первого шага
+            <span className="accent-line mb-6" />
+            <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-6 leading-tight">
+              Начните<br />с первого шага
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+            <p className="text-base md:text-lg text-muted-foreground leading-[1.75] mb-10 max-w-md">
               На вводном разговоре мы разберём вашу ситуацию, задачи и определим, подходит ли
               формат сопровождения. Это бесплатно и ни к чему не обязывает.
             </p>
@@ -93,22 +87,24 @@ const CTASection = () => {
               href="https://t.me/Eugenia_Sergeeva"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-border text-foreground px-6 py-3 rounded-lg font-medium text-sm hover:bg-secondary transition-colors mb-8"
+              className="inline-flex items-center gap-3 border border-border/60 text-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-secondary/50 transition-all duration-300 mb-10 tracking-wide"
             >
-              <MessageCircle size={16} />
+              <MessageCircle size={16} strokeWidth={1.5} />
               Написать в Telegram
             </a>
-            <img
-              src={portrait3}
-              alt="Евгения Сергеева"
-              className="rounded-xl object-contain w-full max-w-md hidden lg:block"
-              loading="lazy"
-            />
+            <div className="relative rounded-lg overflow-hidden w-full max-w-sm hidden lg:block aspect-[4/5]">
+              <img
+                src={portrait3}
+                alt="Евгения Сергеева"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/8 via-transparent to-transparent" />
+            </div>
           </div>
 
           <div className="animate-on-scroll">
-            <form onSubmit={handleSubmit} className="bg-card border border-border rounded-xl p-6 md:p-8 space-y-5">
-              {/* Honeypot */}
+            <form onSubmit={handleSubmit} className="card-premium rounded-lg p-6 md:p-8 space-y-5">
               <input
                 type="text"
                 name="website"
@@ -120,88 +116,47 @@ const CTASection = () => {
               />
 
               <div>
-                <label className="text-sm font-medium text-foreground mb-1.5 block">Имя *</label>
-                <input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => updateField("name", e.target.value)}
-                  className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30"
-                  placeholder="Как к вам обращаться"
-                  maxLength={100}
-                />
-                {errors.name && <p className="text-xs text-destructive mt-1">{errors.name}</p>}
+                <label className="text-[11px] uppercase tracking-[0.12em] font-medium text-foreground mb-2 block">Имя *</label>
+                <input type="text" value={formData.name} onChange={(e) => updateField("name", e.target.value)} className={inputClasses} placeholder="Как к вам обращаться" maxLength={100} />
+                {errors.name && <p className="text-xs text-destructive mt-1.5">{errors.name}</p>}
               </div>
 
               <div>
-                <label className="text-sm font-medium text-foreground mb-1.5 block">Телефон *</label>
-                <input
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => updateField("phone", e.target.value)}
-                  className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30"
-                  placeholder="+7 (___) ___-__-__"
-                  maxLength={20}
-                />
-                {errors.phone && <p className="text-xs text-destructive mt-1">{errors.phone}</p>}
+                <label className="text-[11px] uppercase tracking-[0.12em] font-medium text-foreground mb-2 block">Телефон *</label>
+                <input type="tel" value={formData.phone} onChange={(e) => updateField("phone", e.target.value)} className={inputClasses} placeholder="+7 (___) ___-__-__" maxLength={20} />
+                {errors.phone && <p className="text-xs text-destructive mt-1.5">{errors.phone}</p>}
               </div>
 
               <div>
-                <label className="text-sm font-medium text-foreground mb-1.5 block">Email *</label>
-                <input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => updateField("email", e.target.value)}
-                  className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30"
-                  placeholder="your@email.com"
-                  maxLength={255}
-                />
-                {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
+                <label className="text-[11px] uppercase tracking-[0.12em] font-medium text-foreground mb-2 block">Email *</label>
+                <input type="email" value={formData.email} onChange={(e) => updateField("email", e.target.value)} className={inputClasses} placeholder="your@email.com" maxLength={255} />
+                {errors.email && <p className="text-xs text-destructive mt-1.5">{errors.email}</p>}
               </div>
 
               <div>
-                <label className="text-sm font-medium text-foreground mb-1.5 block">Опишите ваш запрос</label>
-                <textarea
-                  value={formData.request}
-                  onChange={(e) => updateField("request", e.target.value)}
-                  className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 min-h-[100px] resize-y"
-                  placeholder="С чем хотите разобраться?"
-                  maxLength={1000}
-                />
+                <label className="text-[11px] uppercase tracking-[0.12em] font-medium text-foreground mb-2 block">Опишите ваш запрос</label>
+                <textarea value={formData.request} onChange={(e) => updateField("request", e.target.value)} className={`${inputClasses} min-h-[100px] resize-y`} placeholder="С чем хотите разобраться?" maxLength={1000} />
               </div>
 
               <div>
-                <label className="text-sm font-medium text-foreground mb-1.5 block">Удобное время для связи</label>
-                <input
-                  type="text"
-                  value={formData.time}
-                  onChange={(e) => updateField("time", e.target.value)}
-                  className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30"
-                  placeholder="Например, будни после 18:00"
-                  maxLength={100}
-                />
+                <label className="text-[11px] uppercase tracking-[0.12em] font-medium text-foreground mb-2 block">Удобное время для связи</label>
+                <input type="text" value={formData.time} onChange={(e) => updateField("time", e.target.value)} className={inputClasses} placeholder="Например, будни после 18:00" maxLength={100} />
               </div>
 
               <div>
                 <label className="flex items-start gap-3 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={formData.consent}
-                    onChange={(e) => updateField("consent", e.target.checked)}
-                    className="mt-1 rounded border-input"
-                  />
+                  <input type="checkbox" checked={formData.consent} onChange={(e) => updateField("consent", e.target.checked)} className="mt-1 rounded border-border/60 accent-accent" />
                   <span className="text-xs text-muted-foreground leading-relaxed">
                     Я согласен(а) на{" "}
-                    <a href="#privacy" className="underline hover:text-foreground">обработку персональных данных</a>
-                    {" "}в соответствии с{" "}
-                    <a href="#privacy" className="underline hover:text-foreground">политикой конфиденциальности</a>
+                    <a href="#privacy" className="underline hover:text-foreground transition-colors">обработку персональных данных</a>
                   </span>
                 </label>
-                {errors.consent && <p className="text-xs text-destructive mt-1">{errors.consent}</p>}
+                {errors.consent && <p className="text-xs text-destructive mt-1.5">{errors.consent}</p>}
               </div>
 
               {status === "error" && (
-                <div className="flex items-center gap-2 text-sm text-destructive bg-destructive/5 rounded-lg p-3">
-                  <AlertCircle size={16} />
+                <div className="flex items-center gap-2 text-sm text-destructive bg-destructive/5 rounded-md p-3">
+                  <AlertCircle size={14} strokeWidth={1.5} />
                   Не удалось отправить заявку. Попробуйте ещё раз или напишите в Telegram.
                 </div>
               )}
@@ -209,15 +164,18 @@ const CTASection = () => {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="w-full bg-primary text-primary-foreground px-6 py-4 rounded-lg font-medium text-base hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
+                className="group w-full btn-premium bg-primary text-primary-foreground px-6 py-4 rounded-md font-medium text-[15px] tracking-wide disabled:opacity-50 flex items-center justify-center gap-3"
               >
                 {status === "loading" ? (
                   <>
-                    <Loader2 size={18} className="animate-spin" />
+                    <Loader2 size={16} className="animate-spin" />
                     Отправка...
                   </>
                 ) : (
-                  "Оставить заявку"
+                  <>
+                    Оставить заявку
+                    <ArrowRight size={16} strokeWidth={2} className="transition-transform duration-300 group-hover:translate-x-1" />
+                  </>
                 )}
               </button>
             </form>

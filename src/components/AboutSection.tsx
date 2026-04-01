@@ -10,22 +10,23 @@ const facts = [
 ];
 
 const AboutSection = () => (
-  <section className="section-padding" id="about">
+  <section className="section-padding relative" id="about">
     <div className="container">
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div className="animate-on-scroll order-2 lg:order-1">
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-6">
-            Евгения Сергеева
+          <span className="accent-line mb-6" />
+          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-6 leading-tight">
+            Евгения<br />Сергеева
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+          <p className="text-base md:text-lg text-muted-foreground leading-[1.75] mb-10">
             Более десяти лет я работаю на стыке психологии, бизнеса и образования.
             Помогаю предпринимателям, руководителям и экспертам находить ясность,
             выстраивать систему и двигаться к результату — без перегруза и хаоса.
           </p>
-          <ul className="space-y-3 mb-8">
+          <ul className="space-y-3.5">
             {facts.map((f, i) => (
-              <li key={i} className="flex items-start gap-3 text-sm text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
+              <li key={i} className="flex items-start gap-3 text-sm text-foreground/80 leading-relaxed">
+                <span className="w-1 h-1 rounded-full bg-accent mt-2 shrink-0" />
                 {f}
               </li>
             ))}
@@ -33,12 +34,15 @@ const AboutSection = () => (
         </div>
 
         <div className="animate-on-scroll order-1 lg:order-2 flex justify-center">
-          <img
-            src={aboutImg}
-            alt="Евгения Сергеева"
-            className="rounded-2xl object-cover aspect-[3/4] w-full max-w-md shadow-lg"
-            loading="lazy"
-          />
+          <div className="relative rounded-lg overflow-hidden aspect-[3/4] w-full max-w-md">
+            <img
+              src={aboutImg}
+              alt="Евгения Сергеева"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/8 via-transparent to-transparent" />
+          </div>
         </div>
       </div>
     </div>

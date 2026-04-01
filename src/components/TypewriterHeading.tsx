@@ -11,7 +11,7 @@ const TypewriterHeading = ({
   text,
   className = "",
   as: Tag = "h2",
-  speed = 40,
+  speed = 35,
 }: TypewriterHeadingProps) => {
   const [displayedText, setDisplayedText] = useState("");
   const [started, setStarted] = useState(false);
@@ -49,7 +49,7 @@ const TypewriterHeading = ({
     <Tag ref={ref as any} className={`${className} relative`}>
       {started ? displayedText : "\u00A0"}
       <span
-        className="inline-block w-[3px] h-[0.85em] bg-accent ml-1 align-middle animate-cursor-blink"
+        className="inline-block w-[2px] h-[0.8em] bg-accent/60 ml-1 align-middle animate-cursor-blink"
         aria-hidden="true"
       />
     </Tag>

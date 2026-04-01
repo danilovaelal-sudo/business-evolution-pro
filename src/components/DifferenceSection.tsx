@@ -6,34 +6,44 @@ const advantages = [
   "Опыт работы с людьми, командами и развитием — более 10 лет",
   "Системный подход: не только стратегия, но и внутренние ограничения",
   "Сильная экспертиза в коммуникации, обучении и публичных выступлениях",
-  "Сопровождение ради внедрения и движения к результату, а не ради разговоров",
+  "Сопровождение ради внедрения и движения к результату",
 ];
 
 const DifferenceSection = () => (
-  <section className="section-padding bg-secondary/50" id="difference">
-    <div className="container">
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+  <section className="section-padding relative bg-noise" id="difference">
+    <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-secondary/50 to-secondary/30 pointer-events-none" />
+
+    <div className="container relative z-10">
+      <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div className="animate-on-scroll">
-          <img
-            src={differenceImg}
-            alt="Евгения Сергеева — профессиональный подход"
-            className="rounded-2xl object-cover aspect-[4/5] w-full"
-            loading="lazy"
-          />
+          <div className="relative rounded-lg overflow-hidden aspect-[4/5]">
+            <img
+              src={differenceImg}
+              alt="Евгения Сергеева — профессиональный подход"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/8 via-transparent to-transparent" />
+          </div>
         </div>
         <div className="animate-on-scroll">
-          <TypewriterHeading as="h2" text="В чём моё отличие" className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-6" />
-          <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+          <span className="accent-line mb-6" />
+          <TypewriterHeading
+            as="h2"
+            text="В чём моё отличие"
+            className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-6"
+          />
+          <p className="text-muted-foreground text-base md:text-lg mb-10 leading-[1.75]">
             Я работаю на пересечении бизнеса и психологии — там, где одних инструментов
             управления недостаточно, а одной терапии — мало.
           </p>
-          <ul className="space-y-4">
+          <ul className="space-y-5">
             {advantages.map((a, i) => (
               <li key={i} className="flex items-start gap-4">
-                <span className="w-6 h-6 rounded-full bg-accent/15 flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="w-2 h-2 rounded-full bg-accent" />
+                <span className="w-6 h-6 rounded-md bg-accent/8 flex items-center justify-center shrink-0 mt-0.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                 </span>
-                <span className="text-foreground text-sm leading-relaxed">{a}</span>
+                <span className="text-foreground/90 text-sm leading-relaxed">{a}</span>
               </li>
             ))}
           </ul>
