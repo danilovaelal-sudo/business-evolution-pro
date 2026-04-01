@@ -56,7 +56,7 @@ const HeroSection = () => {
                 rel="noopener noreferrer"
                 className="border border-border text-foreground px-7 py-4 rounded-lg font-medium text-base hover:bg-secondary transition-colors flex items-center justify-center gap-2"
               >
-                <Send size={18} />
+                <MessageCircle size={18} />
                 Написать в Telegram
               </a>
             </div>

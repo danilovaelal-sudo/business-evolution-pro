@@ -23,7 +23,7 @@ const columns = [
     ],
   },
   {
-    icon: Heart,
+    icon: Sparkles,
     title: "Состояние и проявленность",
     items: [
       "Работа с перегрузом и выгоранием",

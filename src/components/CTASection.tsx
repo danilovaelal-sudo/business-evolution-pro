@@ -95,7 +95,7 @@ const CTASection = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-border text-foreground px-6 py-3 rounded-lg font-medium text-sm hover:bg-secondary transition-colors mb-8"
             >
-              <Send size={16} />
+              <MessageCircle size={16} />
               Написать в Telegram
             </a>
             <img

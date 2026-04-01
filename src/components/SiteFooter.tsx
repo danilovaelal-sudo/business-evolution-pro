@@ -22,7 +22,7 @@ const SiteFooter = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
               >
-                <Send size={16} />
+                <MessageCircle size={16} />
                 Telegram
               </a>
               <a
