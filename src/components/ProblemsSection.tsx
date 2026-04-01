@@ -1,3 +1,5 @@
+import TypewriterHeading from "@/components/TypewriterHeading";
+
 const problems = [
   {
     title: "Бизнес растёт хаотично",
