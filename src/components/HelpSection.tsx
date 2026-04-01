@@ -1,4 +1,4 @@
-import { TrendingUp, Settings, Heart } from "lucide-react";
+import { Rocket, Workflow, Sparkles } from "lucide-react";
 import TypewriterHeading from "@/components/TypewriterHeading";
 
 const columns = [
