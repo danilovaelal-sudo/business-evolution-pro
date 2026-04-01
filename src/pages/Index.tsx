@@ -32,7 +32,7 @@ const Index = () => {
       <ResultsSection />
       <AboutSection />
       <EducationSection />
-      <NotForSection />
+      
       <TestimonialsSection />
       <FAQSection />
       <CTASection />
