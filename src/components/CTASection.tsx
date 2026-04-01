@@ -94,7 +94,7 @@ const CTASection = () => {
             </a>
             <div className="relative rounded-lg overflow-hidden w-full max-w-sm hidden lg:block aspect-[4/5]">
               <img
-                src={portrait3}
+                src={portraitCta}
                 alt="Евгения Сергеева"
                 className="w-full h-full object-cover"
                 loading="lazy"
