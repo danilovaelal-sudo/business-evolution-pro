@@ -31,9 +31,7 @@ const ProblemsSection = () => (
   <section className="section-padding bg-secondary/50" id="problems">
     <div className="container">
       <div className="text-center mb-14 animate-on-scroll">
-        <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
-          Узнаёте себя?
-        </h2>
+        <TypewriterHeading as="h2" text="Узнаёте себя?" className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4" />
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
           Сопровождение подходит, если хотя бы два пункта — про вас
         </p>
