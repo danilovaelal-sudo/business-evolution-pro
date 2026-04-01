@@ -3,7 +3,7 @@ import TypewriterHeading from "@/components/TypewriterHeading";
 
 const columns = [
   {
-    icon: TrendingUp,
+    icon: Rocket,
     title: "Бизнес",
     items: [
       "Поиск узких мест роста",
