@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { MoveRight } from "lucide-react";
 
 const MidCTA = () => {
   const scrollToContact = () => {
@@ -20,7 +20,7 @@ const MidCTA = () => {
             className="bg-accent text-accent-foreground px-7 py-4 rounded-lg font-medium text-base hover:opacity-90 transition-opacity inline-flex items-center gap-2"
           >
             Оставить заявку
-            <ArrowRight size={18} />
+            <MoveRight size={18} />
           </button>
         </div>
       </div>

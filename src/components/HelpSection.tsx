@@ -1,9 +1,9 @@
-import { TrendingUp, Settings, Heart } from "lucide-react";
+import { Rocket, Workflow, Sparkles } from "lucide-react";
 import TypewriterHeading from "@/components/TypewriterHeading";
 
 const columns = [
   {
-    icon: TrendingUp,
+    icon: Rocket,
     title: "Бизнес",
     items: [
       "Поиск узких мест роста",
@@ -13,7 +13,7 @@ const columns = [
     ],
   },
   {
-    icon: Settings,
+    icon: Workflow,
     title: "Управление",
     items: [
       "Система планирования и контроля",
@@ -23,7 +23,7 @@ const columns = [
     ],
   },
   {
-    icon: Heart,
+    icon: Sparkles,
     title: "Состояние и проявленность",
     items: [
       "Работа с перегрузом и выгоранием",

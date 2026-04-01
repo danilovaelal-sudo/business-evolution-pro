@@ -1,5 +1,5 @@
 import { useState, FormEvent } from "react";
-import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { MessageCircle, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import portrait3 from "@/assets/portrait3.jpg";
 
 const CTASection = () => {
@@ -64,7 +64,7 @@ const CTASection = () => {
       <section className="section-padding" id="contact">
         <div className="container">
           <div className="max-w-xl mx-auto text-center animate-on-scroll">
-            <CheckCircle size={48} className="text-accent mx-auto mb-6" />
+            <CheckCircle2 size={48} className="text-accent mx-auto mb-6" />
             <h2 className="font-serif text-3xl font-semibold text-foreground mb-4">
               Заявка отправлена
             </h2>
@@ -95,7 +95,7 @@ const CTASection = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-border text-foreground px-6 py-3 rounded-lg font-medium text-sm hover:bg-secondary transition-colors mb-8"
             >
-              <Send size={16} />
+              <MessageCircle size={16} />
               Написать в Telegram
             </a>
             <img

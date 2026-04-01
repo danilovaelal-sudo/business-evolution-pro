@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import TypewriterHeading from "@/components/TypewriterHeading";
 
 const results = [
@@ -28,7 +28,7 @@ const ResultsSection = () => (
               {r.before}
             </p>
             <div className="flex items-center gap-2">
-              <ArrowRight size={14} className="text-accent shrink-0" />
+              <MoveRight size={14} className="text-accent shrink-0" />
               <p className="text-sm font-medium text-foreground">{r.after}</p>
             </div>
           </div>
