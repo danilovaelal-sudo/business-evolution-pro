@@ -1,5 +1,5 @@
 import { useState, FormEvent } from "react";
-import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { MessageCircle, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import portrait3 from "@/assets/portrait3.jpg";
 
 const CTASection = () => {
