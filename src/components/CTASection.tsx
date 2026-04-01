@@ -101,7 +101,7 @@ const CTASection = () => {
             <img
               src={portrait3}
               alt="Евгения Сергеева"
-              className="rounded-xl object-cover aspect-[4/3] w-full max-w-md hidden lg:block"
+              className="rounded-xl object-contain w-full max-w-md hidden lg:block"
               loading="lazy"
             />
           </div>
