@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { MoveRight } from "lucide-react";
 
 const MidCTA = () => {
   const scrollToContact = () => {
