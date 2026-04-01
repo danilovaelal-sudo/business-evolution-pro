@@ -52,7 +52,7 @@ const FAQSection = () => (
               className="animate-on-scroll card-premium rounded-md px-6 data-[state=open]:border-border"
               style={{ transitionDelay: `${i * 50}ms` }}
             >
-              <AccordionTrigger className="text-sm font-medium text-foreground hover:no-underline py-5 tracking-tight">
+              <AccordionTrigger className="text-sm font-medium text-foreground hover:no-underline py-5 tracking-tight text-left">
                 {faq.q}
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground leading-[1.75] pb-5">
