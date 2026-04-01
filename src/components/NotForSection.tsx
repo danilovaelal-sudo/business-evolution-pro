@@ -12,9 +12,7 @@ const NotForSection = () => (
   <section className="section-padding bg-secondary/50">
     <div className="container">
       <div className="max-w-3xl mx-auto animate-on-scroll">
-        <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-8 text-center">
-          Для кого не подойдёт
-        </h2>
+        <TypewriterHeading as="h2" text="Для кого не подойдёт" className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-8 text-center" />
         <div className="space-y-4">
           {items.map((item, i) => (
             <div

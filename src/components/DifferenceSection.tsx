@@ -22,9 +22,7 @@ const DifferenceSection = () => (
           />
         </div>
         <div className="animate-on-scroll">
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-6">
-            В чём моё отличие
-          </h2>
+          <TypewriterHeading as="h2" text="В чём моё отличие" className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-6" />
           <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
             Я работаю на пересечении бизнеса и психологии — там, где одних инструментов
             управления недостаточно, а одной терапии — мало.
