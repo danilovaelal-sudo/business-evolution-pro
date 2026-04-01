@@ -1,3 +1,4 @@
+/* Landing page */
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import SiteHeader from "@/components/SiteHeader";
 import HeroSection from "@/components/HeroSection";
