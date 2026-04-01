@@ -14,12 +14,14 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import SiteFooter from "@/components/SiteFooter";
+import CursorTrail from "@/components/CursorTrail";
 
 const Index = () => {
   useScrollAnimation();
 
   return (
     <div className="min-h-screen bg-background">
+      <CursorTrail />
       <SiteHeader />
       <HeroSection />
       <div className="section-divider" />
