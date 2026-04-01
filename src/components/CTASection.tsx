@@ -1,6 +1,6 @@
 import { useState, FormEvent } from "react";
 import { MessageCircle, CheckCircle2, AlertCircle, Loader2, ArrowRight } from "lucide-react";
-import portrait3 from "@/assets/portrait3.jpg";
+import portraitCta from "@/assets/portrait-cta.jpg";
 
 const CTASection = () => {
   const [formData, setFormData] = useState({
