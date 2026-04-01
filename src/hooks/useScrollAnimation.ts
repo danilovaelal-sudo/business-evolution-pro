@@ -1,7 +1,17 @@
-import { useEffect, useCallback } from "react";
+import { useEffect } from "react";
 
 export const useScrollAnimation = () => {
-  const init = useCallback(() => {
+  useEffect(() => {
+    const elements = document.querySelectorAll(".animate-on-scroll");
+    
+    // Immediately show elements that are already in viewport
+    elements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        el.classList.add("visible");
+      }
+    });
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -11,18 +21,15 @@ export const useScrollAnimation = () => {
           }
         });
       },
-      { threshold: 0.05, rootMargin: "0px 0px -30px 0px" }
+      { threshold: 0.01, rootMargin: "50px" }
     );
 
-    const elements = document.querySelectorAll(".animate-on-scroll");
-    elements.forEach((el) => observer.observe(el));
+    elements.forEach((el) => {
+      if (!el.classList.contains("visible")) {
+        observer.observe(el);
+      }
+    });
 
     return () => observer.disconnect();
   }, []);
-
-  useEffect(() => {
-    // Small delay to ensure DOM is fully painted
-    const timeout = setTimeout(init, 100);
-    return () => clearTimeout(timeout);
-  }, [init]);
 };
