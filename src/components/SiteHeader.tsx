@@ -21,25 +21,24 @@ const SiteHeader = () => {
 
   const scrollTo = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/95 backdrop-blur-md shadow-sm py-3"
+          ? "bg-background/80 backdrop-blur-xl border-b border-border/40 py-3"
           : "bg-transparent py-5"
       }`}
     >
       <div className="container flex items-center justify-between">
         <div className="flex flex-col">
-          <span className="font-serif text-lg font-semibold tracking-tight text-foreground">
+          <span className="font-serif text-xl font-semibold tracking-tight text-foreground">
             Евгения Сергеева
           </span>
-          <span className="text-xs text-muted-foreground tracking-wide">
-            психолог • бизнес-трекер
+          <span className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground/70 font-medium">
+            психолог · бизнес-трекер
           </span>
         </div>
 
@@ -48,14 +47,14 @@ const SiteHeader = () => {
             <button
               key={item.href}
               onClick={() => scrollTo(item.href)}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-[13px] tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               {item.label}
             </button>
           ))}
           <button
             onClick={() => scrollTo("#contact")}
-            className="bg-primary text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+            className="btn-premium bg-primary text-primary-foreground px-6 py-2.5 rounded-md text-[13px] font-medium tracking-wide"
           >
             Оставить заявку
           </button>
@@ -66,25 +65,25 @@ const SiteHeader = () => {
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Меню"
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
         </button>
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden bg-background border-t border-border">
-          <div className="container py-6 flex flex-col gap-4">
+        <div className="lg:hidden bg-background/95 backdrop-blur-xl border-t border-border/40">
+          <div className="container py-8 flex flex-col gap-1">
             {navItems.map((item) => (
               <button
                 key={item.href}
                 onClick={() => scrollTo(item.href)}
-                className="text-left text-base text-muted-foreground hover:text-foreground py-2"
+                className="text-left text-base text-muted-foreground hover:text-foreground py-3 transition-colors border-b border-border/30 last:border-0"
               >
                 {item.label}
               </button>
             ))}
             <button
               onClick={() => scrollTo("#contact")}
-              className="bg-primary text-primary-foreground px-5 py-3 rounded-lg text-sm font-medium mt-2"
+              className="bg-primary text-primary-foreground px-5 py-3.5 rounded-md text-sm font-medium mt-4 tracking-wide"
             >
               Оставить заявку
             </button>

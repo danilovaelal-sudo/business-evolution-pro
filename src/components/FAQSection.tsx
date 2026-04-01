@@ -20,11 +20,11 @@ const faqs = [
   },
   {
     q: "Сколько длится работа?",
-    a: "Стандартный формат — от 2 до 4 месяцев. Длительность зависит от задач и глубины запроса. Обсуждается индивидуально.",
+    a: "Стандартный формат — от 2 до 4 месяцев. Длительность зависит от задач и глубины запроса.",
   },
   {
     q: "Что происходит после заявки?",
-    a: "Я свяжусь с вами в течение 1–2 дней. Мы назначим короткий вводный звонок, на котором обсудим вашу ситуацию и определим, подходит ли формат.",
+    a: "Я свяжусь с вами в течение 1–2 дней. Мы назначим короткий вводный звонок, на котором обсудим вашу ситуацию.",
   },
   {
     q: "Чем сопровождение отличается от разовой консультации?",
@@ -33,24 +33,29 @@ const faqs = [
 ];
 
 const FAQSection = () => (
-  <section className="section-padding bg-secondary/50" id="faq">
-    <div className="container">
+  <section className="section-padding relative bg-noise" id="faq">
+    <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-secondary/50 to-secondary/30 pointer-events-none" />
+
+    <div className="container relative z-10">
       <div className="max-w-3xl mx-auto">
-        <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-10 text-center animate-on-scroll">
-          Частые вопросы
-        </h2>
-        <Accordion type="single" collapsible className="space-y-3">
+        <div className="text-center mb-14 animate-on-scroll">
+          <span className="accent-line mx-auto mb-6" />
+          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-5">
+            Частые вопросы
+          </h2>
+        </div>
+        <Accordion type="single" collapsible className="space-y-2.5">
           {faqs.map((faq, i) => (
             <AccordionItem
               key={i}
               value={`faq-${i}`}
-              className="animate-on-scroll bg-card border border-border rounded-xl px-6 data-[state=open]:shadow-sm"
-              style={{ transitionDelay: `${i * 60}ms` }}
+              className="animate-on-scroll card-premium rounded-md px-6 data-[state=open]:border-border"
+              style={{ transitionDelay: `${i * 50}ms` }}
             >
-              <AccordionTrigger className="text-sm font-medium text-foreground hover:no-underline py-5">
+              <AccordionTrigger className="text-sm font-medium text-foreground hover:no-underline py-5 tracking-tight">
                 {faq.q}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-5">
+              <AccordionContent className="text-sm text-muted-foreground leading-[1.75] pb-5">
                 {faq.a}
               </AccordionContent>
             </AccordionItem>

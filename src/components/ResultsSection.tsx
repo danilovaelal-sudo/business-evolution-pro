@@ -11,25 +11,31 @@ const results = [
 ];
 
 const ResultsSection = () => (
-  <section className="section-padding bg-secondary/50">
-    <div className="container">
-      <div className="text-center mb-14 animate-on-scroll">
-        <TypewriterHeading as="h2" text="Какие результаты получает клиент" className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4" />
+  <section className="section-padding relative bg-noise">
+    <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-secondary/50 to-secondary/30 pointer-events-none" />
+
+    <div className="container relative z-10">
+      <div className="text-center mb-16 animate-on-scroll">
+        <span className="accent-line mx-auto mb-6" />
+        <TypewriterHeading
+          as="h2"
+          text="Какие результаты получает клиент"
+          className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-5"
+        />
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 max-w-5xl mx-auto stagger-children">
         {results.map((r, i) => (
           <div
             key={i}
-            className="animate-on-scroll bg-card border border-border rounded-xl p-6 hover-lift"
-            style={{ transitionDelay: `${i * 70}ms` }}
+            className="animate-on-scroll card-premium rounded-lg p-6"
           >
-            <p className="text-sm text-muted-foreground line-through decoration-muted-foreground/30 mb-3">
+            <p className="text-sm text-muted-foreground/60 line-through decoration-muted-foreground/20 mb-4 leading-relaxed">
               {r.before}
             </p>
-            <div className="flex items-center gap-2">
-              <MoveRight size={14} className="text-accent shrink-0" />
-              <p className="text-sm font-medium text-foreground">{r.after}</p>
+            <div className="flex items-center gap-3">
+              <MoveRight size={14} strokeWidth={1.5} className="text-accent shrink-0" />
+              <p className="text-sm font-medium text-foreground leading-relaxed">{r.after}</p>
             </div>
           </div>
         ))}

@@ -31,27 +31,27 @@ const testimonials = [
   {
     name: "Наталья Р.",
     role: "Коуч, частная практика",
-    text: "Евгения — редкий специалист, который одновременно понимает и бизнес-логику, и человеческую психологию. Благодаря сопровождению я выстроила стратегию развития практики, перестала распыляться и увеличила доход вдвое за полгода. Очень рекомендую.",
+    text: "Евгения — редкий специалист, который одновременно понимает и бизнес-логику, и человеческую психологию. Благодаря сопровождению я выстроила стратегию развития практики, перестала распыляться и увеличила доход вдвое за полгода.",
   },
 ];
 
 const TestimonialCard = ({ t }: { t: (typeof testimonials)[0] }) => (
-  <div className="bg-card border border-border rounded-xl p-6 md:p-7 hover-lift flex flex-col h-full">
-    <Quote size={24} className="text-accent/30 mb-3 shrink-0" />
-    <p className="text-sm md:text-[15px] text-foreground/80 leading-relaxed mb-5 flex-1 tracking-normal">
+  <div className="card-premium rounded-lg p-6 md:p-7 flex flex-col h-full">
+    <Quote size={20} strokeWidth={1} className="text-accent/25 mb-4 shrink-0" />
+    <p className="text-sm md:text-[15px] text-foreground/75 leading-[1.75] mb-6 flex-1 italic font-light">
       {t.text}
     </p>
-    <div className="flex items-center gap-3 pt-4 border-t border-border/50">
-      <div className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center">
-        <span className="text-accent font-semibold text-sm">{t.name[0]}</span>
+    <div className="flex items-center gap-3 pt-5 border-t border-border/40">
+      <div className="w-9 h-9 rounded-md bg-accent/8 flex items-center justify-center">
+        <span className="text-accent font-serif font-semibold text-sm">{t.name[0]}</span>
       </div>
-      <div>
-        <p className="text-sm font-semibold text-foreground tracking-tight">{t.name}</p>
-        <p className="text-xs text-muted-foreground">{t.role}</p>
+      <div className="flex-1">
+        <p className="text-sm font-medium text-foreground tracking-tight">{t.name}</p>
+        <p className="text-[11px] text-muted-foreground uppercase tracking-[0.08em]">{t.role}</p>
       </div>
-      <div className="ml-auto flex gap-0.5">
+      <div className="flex gap-0.5">
         {[...Array(5)].map((_, j) => (
-          <Star key={j} size={12} className="fill-accent text-accent" />
+          <Star key={j} size={11} className="fill-accent/70 text-accent/70" />
         ))}
       </div>
     </div>
@@ -64,8 +64,6 @@ const TestimonialsSection = () => {
     containScroll: "trimSnaps",
     loop: true,
   });
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
@@ -73,26 +71,21 @@ const TestimonialsSection = () => {
 
   useEffect(() => {
     if (!emblaApi) return;
-    const onSelect = () => {
-      setCanScrollPrev(emblaApi.canScrollPrev());
-      setCanScrollNext(emblaApi.canScrollNext());
-      setSelectedIndex(emblaApi.selectedScrollSnap());
-    };
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
     emblaApi.on("select", onSelect);
     onSelect();
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
+    return () => { emblaApi.off("select", onSelect); };
   }, [emblaApi]);
 
   return (
-    <section className="section-padding" id="testimonials">
+    <section className="section-padding relative" id="testimonials">
       <div className="container">
-        <div className="text-center mb-14 animate-on-scroll">
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
+        <div className="text-center mb-16 animate-on-scroll">
+          <span className="accent-line mx-auto mb-6" />
+          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-5">
             Отзывы клиентов
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed">
             Реальные истории предпринимателей и руководителей
           </p>
         </div>
@@ -102,51 +95,45 @@ const TestimonialsSection = () => {
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-4">
               {testimonials.map((t, i) => (
-                <div key={i} className="flex-[0_0_85%] min-w-0">
+                <div key={i} className="flex-[0_0_88%] min-w-0">
                   <TestimonialCard t={t} />
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="flex items-center justify-center gap-4 mt-6">
+          <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={scrollPrev}
-              disabled={!canScrollPrev}
-              className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-secondary transition-colors disabled:opacity-30"
+              className="w-10 h-10 rounded-md border border-border/60 flex items-center justify-center text-foreground/60 hover:text-foreground hover:border-border transition-all duration-300"
               aria-label="Предыдущий отзыв"
             >
-              <ChevronLeft size={18} />
+              <ChevronLeft size={16} strokeWidth={1.5} />
             </button>
             <div className="flex gap-1.5">
               {testimonials.map((_, i) => (
                 <span
                   key={i}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    i === selectedIndex ? "bg-accent" : "bg-border"
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                    i === selectedIndex ? "bg-accent w-4" : "bg-border"
                   }`}
                 />
               ))}
             </div>
             <button
               onClick={scrollNext}
-              disabled={!canScrollNext}
-              className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-secondary transition-colors disabled:opacity-30"
+              className="w-10 h-10 rounded-md border border-border/60 flex items-center justify-center text-foreground/60 hover:text-foreground hover:border-border transition-all duration-300"
               aria-label="Следующий отзыв"
             >
-              <ChevronRight size={18} />
+              <ChevronRight size={16} strokeWidth={1.5} />
             </button>
           </div>
         </div>
 
         {/* Desktop grid */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children">
           {testimonials.map((t, i) => (
-            <div
-              key={i}
-              className="animate-on-scroll"
-              style={{ transitionDelay: `${i * 80}ms` }}
-            >
+            <div key={i} className="animate-on-scroll">
               <TestimonialCard t={t} />
             </div>
           ))}

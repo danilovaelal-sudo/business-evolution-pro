@@ -35,32 +35,36 @@ const columns = [
 ];
 
 const HelpSection = () => (
-  <section className="section-padding" id="help">
+  <section className="section-padding relative" id="help">
     <div className="container">
-      <div className="text-center mb-14 animate-on-scroll">
-        <TypewriterHeading as="h2" text="С чем я помогаю" className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4" />
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+      <div className="text-center mb-16 animate-on-scroll">
+        <span className="accent-line mx-auto mb-6" />
+        <TypewriterHeading
+          as="h2"
+          text="С чем я помогаю"
+          className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-5"
+        />
+        <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed">
           Три направления в одном сопровождении — для устойчивых изменений
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-        {columns.map((col, i) => {
+      <div className="grid md:grid-cols-3 gap-5 lg:gap-6 stagger-children">
+        {columns.map((col) => {
           const Icon = col.icon;
           return (
             <div
               key={col.title}
-              className="animate-on-scroll bg-card border border-border rounded-xl p-7 hover-lift"
-              style={{ transitionDelay: `${i * 100}ms` }}
+              className="animate-on-scroll card-premium rounded-lg p-7 md:p-8"
             >
-              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                <Icon size={22} className="text-accent" />
+              <div className="w-11 h-11 rounded-md bg-accent/8 flex items-center justify-center mb-6">
+                <Icon size={20} strokeWidth={1.5} className="text-accent" />
               </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-5">{col.title}</h3>
-              <ul className="space-y-3">
+              <h3 className="font-serif text-2xl font-semibold text-foreground mb-6">{col.title}</h3>
+              <ul className="space-y-3.5">
                 {col.items.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
+                  <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed">
+                    <span className="w-1 h-1 rounded-full bg-accent mt-2 shrink-0" />
                     {item}
                   </li>
                 ))}
