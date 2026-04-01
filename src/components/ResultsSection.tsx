@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import TypewriterHeading from "@/components/TypewriterHeading";
 
 const results = [
   { before: "Хаос и реактивное управление", after: "Понятная система и регулярный ритм" },
@@ -13,9 +14,7 @@ const ResultsSection = () => (
   <section className="section-padding bg-secondary/50">
     <div className="container">
       <div className="text-center mb-14 animate-on-scroll">
-        <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
-          Какие результаты получает клиент
-        </h2>
+        <TypewriterHeading as="h2" text="Какие результаты получает клиент" className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4" />
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">

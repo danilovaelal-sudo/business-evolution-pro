@@ -1,4 +1,5 @@
 import { TrendingUp, Settings, Heart } from "lucide-react";
+import TypewriterHeading from "@/components/TypewriterHeading";
 
 const columns = [
   {
@@ -37,9 +38,7 @@ const HelpSection = () => (
   <section className="section-padding" id="help">
     <div className="container">
       <div className="text-center mb-14 animate-on-scroll">
-        <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
-          С чем я помогаю
-        </h2>
+        <TypewriterHeading as="h2" text="С чем я помогаю" className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4" />
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
           Три направления в одном сопровождении — для устойчивых изменений
         </p>
