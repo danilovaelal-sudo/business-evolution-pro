@@ -30,6 +30,7 @@ const Index = () => {
       <MidCTA />
       <ResultsSection />
       <AboutSection />
+      <EducationSection />
       <NotForSection />
       <TestimonialsSection />
       <FAQSection />
