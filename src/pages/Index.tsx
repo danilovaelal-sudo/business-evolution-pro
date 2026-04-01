@@ -4,6 +4,7 @@ import SiteHeader from "@/components/SiteHeader";
 import HeroSection from "@/components/HeroSection";
 import ProblemsSection from "@/components/ProblemsSection";
 import HelpSection from "@/components/HelpSection";
+// NotForSection removed
 import DifferenceSection from "@/components/DifferenceSection";
 import ProcessSection from "@/components/ProcessSection";
 import MidCTA from "@/components/MidCTA";
