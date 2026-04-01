@@ -43,7 +43,7 @@ const EducationSection = () => (
         <div className="animate-on-scroll">
           <div className="flex items-center gap-3 mb-6">
             <span className="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center">
-              <GraduationCap size={20} className="text-accent" />
+              <Award size={20} className="text-accent" />
             </span>
             <h3 className="font-serif text-xl font-semibold text-foreground">
               Высшее образование
