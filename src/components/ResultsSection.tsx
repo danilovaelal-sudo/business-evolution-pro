@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import TypewriterHeading from "@/components/TypewriterHeading";
 
 const results = [
   { before: "Хаос и реактивное управление", after: "Понятная система и регулярный ритм" },
