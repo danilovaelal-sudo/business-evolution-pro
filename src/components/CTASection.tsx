@@ -64,7 +64,7 @@ const CTASection = () => {
       <section className="section-padding" id="contact">
         <div className="container">
           <div className="max-w-xl mx-auto text-center animate-on-scroll">
-            <CheckCircle size={48} className="text-accent mx-auto mb-6" />
+            <CheckCircle2 size={48} className="text-accent mx-auto mb-6" />
             <h2 className="font-serif text-3xl font-semibold text-foreground mb-4">
               Заявка отправлена
             </h2>
