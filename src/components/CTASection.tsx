@@ -1,6 +1,6 @@
 import { useState, FormEvent } from "react";
 import { MessageCircle, CheckCircle2, AlertCircle, Loader2, ArrowRight } from "lucide-react";
-import portrait3 from "@/assets/portrait3.jpg";
+import portraitCta from "@/assets/portrait-cta.jpg";
 
 const CTASection = () => {
   const [formData, setFormData] = useState({
@@ -94,7 +94,7 @@ const CTASection = () => {
             </a>
             <div className="relative rounded-lg overflow-hidden w-full max-w-sm hidden lg:block aspect-[4/5]">
               <img
-                src={portrait3}
+                src={portraitCta}
                 alt="Евгения Сергеева"
                 className="w-full h-full object-cover"
                 loading="lazy"
