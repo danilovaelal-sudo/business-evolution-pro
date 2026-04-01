@@ -13,7 +13,7 @@ const columns = [
     ],
   },
   {
-    icon: Settings,
+    icon: Workflow,
     title: "Управление",
     items: [
       "Система планирования и контроля",
