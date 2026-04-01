@@ -1,4 +1,4 @@
-import { Send, ArrowRight } from "lucide-react";
+import { MessageCircle, ArrowRight } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import TypewriterHeading from "@/components/TypewriterHeading";
 
