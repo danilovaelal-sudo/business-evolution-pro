@@ -1,36 +1,42 @@
-import { TrendingUp, Shield, Clock, Eye, Flame, Compass } from "lucide-react";
+import { TrendingUp, Shield, Clock, Eye, Flame, Compass, MoveRight } from "lucide-react";
 import TypewriterHeading from "@/components/TypewriterHeading";
 
 const benefits = [
   {
     icon: Eye,
     title: "Ясность и фокус",
-    desc: "Вы точно знаете, что делать, в каком порядке и зачем. Размытые приоритеты превращаются в конкретный план.",
+    desc: "Размытые приоритеты превращаются в конкретный план действий с понятной последовательностью.",
+    metric: "→ Чёткий план за первые 2 недели",
   },
   {
     icon: TrendingUp,
-    title: "Движение к росту",
+    title: "Рост выручки",
     desc: "Выручка растёт не за счёт перегруза, а за счёт устранения ключевого ограничения бизнеса.",
+    metric: "→ Средний рост +30–50% за 3 месяца",
   },
   {
     icon: Shield,
-    title: "Устойчивость",
-    desc: "Внутренние барьеры перестают тормозить решения. Вы действуете увереннее и спокойнее.",
+    title: "Устойчивость в решениях",
+    desc: "Внутренние барьеры перестают тормозить. Вы действуете увереннее и спокойнее.",
+    metric: "→ Уверенность вместо сомнений",
   },
   {
     icon: Clock,
-    title: "Свободное время",
-    desc: "Делегирование работает, команда становится самостоятельнее. Вы выходите из операционки.",
+    title: "Выход из операционки",
+    desc: "Делегирование работает, команда становится самостоятельнее. Вы занимаетесь стратегией.",
+    metric: "→ До 40% времени высвобождается",
   },
   {
     icon: Compass,
     title: "Системное управление",
     desc: "Хаотичные решения заменяются регулярным управленческим ритмом и понятной структурой.",
+    metric: "→ Управляемость и дисциплина команды",
   },
   {
     icon: Flame,
     title: "Энергия без выгорания",
-    desc: "Вы перестаёте быть «пожарным» в собственном бизнесе. Работа приносит удовлетворение, а не истощение.",
+    desc: "Вы перестаёте быть «пожарным» в собственном бизнесе. Работа приносит удовлетворение.",
+    metric: "→ Баланс вместо истощения",
   },
 ];
 
@@ -62,7 +68,8 @@ const BenefitsSection = () => (
                 <Icon size={20} strokeWidth={1.5} className="text-accent" />
               </div>
               <h3 className="font-semibold text-foreground mb-2 text-base">{b.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-3">{b.desc}</p>
+              <p className="text-xs text-accent font-medium tracking-wide">{b.metric}</p>
             </div>
           );
         })}

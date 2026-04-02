@@ -28,26 +28,35 @@ const HeroSection = () => {
 
             <TypewriterHeading
               as="h1"
-              text="Ваш бизнес растёт, а вы — выгораете?"
+              text="Уберу главное ограничение вашего бизнеса — без перегруза и хаоса"
               className="text-[1.75rem] sm:text-[2.2rem] lg:text-[3rem] xl:text-[3.4rem] font-bold leading-[1.08] text-foreground mb-6"
               speed={25}
             />
 
             <p className="text-lg lg:text-xl text-accent font-medium mb-4 leading-snug">
-              Нахожу главное ограничение роста и убираю его — системно, без перегруза.
+              Психология + бизнес-трекинг + методология — системно, за 8–16 недель.
             </p>
 
-            <p className="text-base text-muted-foreground leading-[1.75] mb-10 max-w-lg">
-              Психология, бизнес-трекинг и методология — в одном сопровождении.
-              Вы получаете ясность, фокус и движение к результату вместо хаоса и тревоги.
+            <p className="text-base text-muted-foreground leading-[1.75] mb-6 max-w-lg">
+              Онлайн-сопровождение с еженедельными встречами. Вы получаете ясность, фокус
+              и движение к результату вместо хаоса и тревоги.
             </p>
+
+            {/* Format badges */}
+            <div className="flex flex-wrap gap-2.5 mb-10">
+              {["Онлайн", "8–16 недель", "Еженедельные встречи", "Поддержка между сессиями"].map((tag) => (
+                <span key={tag} className="text-[11px] uppercase tracking-[0.1em] text-muted-foreground border border-border/50 rounded-full px-3.5 py-1.5">
+                  {tag}
+                </span>
+              ))}
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={scrollToContact}
                 className="group btn-premium bg-accent text-accent-foreground px-8 py-4 rounded-md font-semibold text-[15px] tracking-wide flex items-center justify-center gap-3"
               >
-                Оставить заявку
+                Записаться на разбор
                 <ArrowRight size={16} strokeWidth={2} className="transition-transform duration-300 group-hover:translate-x-1" />
               </button>
               <a
@@ -70,7 +79,7 @@ const HeroSection = () => {
               <div className="w-px h-10 bg-border/40" />
               <div>
                 <p className="text-2xl font-bold text-foreground">500+</p>
-                <p className="text-[11px] uppercase tracking-[0.1em] text-muted-foreground mt-0.5">клиентов</p>
+                <p className="text-[11px] uppercase tracking-[0.1em] text-muted-foreground mt-0.5">предпринимателей</p>
               </div>
               <div className="w-px h-10 bg-border/40" />
               <div>
