@@ -53,7 +53,7 @@ const HelpSection = () => (
         {columns.map((col) => {
           const Icon = col.icon;
           return (
-            <div key={col.title} className="animate-on-scroll card-premium rounded-lg p-7 md:p-8">
+            <div key={col.title} className="animate-on-scroll card-premium rounded-lg p-7 md:p-8 transition-shadow duration-500 hover:shadow-[0_0_20px_-4px_hsl(38_65%_55%/0.25),inset_0_0_0_1px_hsl(38_65%_55%/0.15)]">
               <div className="w-11 h-11 rounded-lg bg-accent/10 flex items-center justify-center mb-6">
                 <Icon size={20} strokeWidth={1.5} className="text-accent" />
               </div>
