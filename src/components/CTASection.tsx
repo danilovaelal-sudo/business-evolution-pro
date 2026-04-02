@@ -1,5 +1,5 @@
 import { useState, FormEvent } from "react";
-import { MessageCircle, CheckCircle2, AlertCircle, Loader2, ArrowRight } from "lucide-react";
+import { CheckCircle2, AlertCircle, Loader2, ArrowRight } from "lucide-react";
 
 const CTASection = () => {
   const [formData, setFormData] = useState({
@@ -80,15 +80,6 @@ const CTASection = () => {
               На вводном разговоре мы разберём вашу ситуацию, задачи и определим, подходит ли
               формат сопровождения. Это бесплатно и ни к чему не обязывает.
             </p>
-            <a
-              href="https://t.me/Eugenia_Sergeeva"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 border border-border/60 text-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-secondary/50 transition-all duration-300 tracking-wide"
-            >
-              <MessageCircle size={16} strokeWidth={1.5} />
-              Написать в Telegram
-            </a>
 
             {/* Visual element instead of photo */}
             <div className="hidden lg:block mt-12">
