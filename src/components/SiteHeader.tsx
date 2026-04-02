@@ -56,7 +56,7 @@ const SiteHeader = () => {
             onClick={() => scrollTo("#contact")}
             className="btn-premium bg-accent text-accent-foreground px-6 py-2.5 rounded-md text-[13px] font-semibold tracking-wide"
           >
-            Оставить заявку
+            Записаться на разбор
           </button>
         </nav>
 
@@ -85,7 +85,7 @@ const SiteHeader = () => {
               onClick={() => scrollTo("#contact")}
               className="bg-accent text-accent-foreground px-5 py-3.5 rounded-md text-sm font-semibold mt-4 tracking-wide"
             >
-              Оставить заявку
+              Записаться на разбор
             </button>
           </div>
         </div>
