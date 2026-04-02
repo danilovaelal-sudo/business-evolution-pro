@@ -9,7 +9,7 @@ import DifferenceSection from "@/components/DifferenceSection";
 import ProcessSection from "@/components/ProcessSection";
 import MidCTA from "@/components/MidCTA";
 import BenefitsSection from "@/components/BenefitsSection";
-import ResultsSection from "@/components/ResultsSection";
+
 import AboutSection from "@/components/AboutSection";
 import EducationSection from "@/components/EducationSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
