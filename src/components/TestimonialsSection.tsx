@@ -6,44 +6,44 @@ const testimonials = [
   {
     name: "Алексей М.",
     role: "Владелец производственной компании",
-    text: "Работали с Евгенией три месяца. Я зашёл с ощущением, что тону в операционке и не вижу выхода. Уже к концу первого месяца появилась ясность — что делать, что делегировать, что вообще убрать. Спокойный, системный подход без лишнего давления.",
+    text: "Работали с Евгенией три месяца. Я зашёл с ощущением, что тону в операционке и не вижу выхода. Уже к концу первого месяца появилась ясность — что делать, что делегировать, что вообще убрать.",
   },
   {
     name: "Марина К.",
     role: "Эксперт, онлайн-проект",
-    text: "Евгения помогла мне разобраться не только с бизнес-процессами, но и с внутренними ограничениями, которые мешали расти. Я наконец начала делегировать и перестала бояться масштабирования. Очень ценный опыт.",
+    text: "Евгения помогла мне разобраться не только с бизнес-процессами, но и с внутренними ограничениями, которые мешали расти. Я наконец начала делегировать и перестала бояться масштабирования.",
   },
   {
     name: "Дмитрий С.",
     role: "Руководитель IT-направления",
-    text: "Ценно, что Евгения видит и бизнес-задачи, и психологическую сторону. Мне это дало не просто план действий, а понимание, почему я раньше не мог эти действия выполнить. Рекомендую всем, кто застрял.",
+    text: "Ценно, что Евгения видит и бизнес-задачи, и психологическую сторону. Мне это дало не просто план действий, а понимание, почему я раньше не мог эти действия выполнить.",
   },
   {
     name: "Ольга В.",
     role: "Собственник сети салонов",
-    text: "После сопровождения я впервые за три года ушла в отпуск и бизнес не остановился. Появилась система, команда стала самостоятельнее. Евгения работает очень бережно, но при этом точно и по делу.",
+    text: "После сопровождения я впервые за три года ушла в отпуск и бизнес не остановился. Появилась система, команда стала самостоятельнее.",
   },
   {
     name: "Игорь Т.",
     role: "Предприниматель, сфера услуг",
-    text: "Пришёл с запросом на рост выручки, а в итоге полностью перестроил подход к управлению. Евгения мастерски сочетает глубину и практичность. Работать с ней — это не про мотивацию, а про реальные изменения.",
+    text: "Пришёл с запросом на рост выручки, а в итоге полностью перестроил подход к управлению. Евгения мастерски сочетает глубину и практичность.",
   },
   {
     name: "Наталья Р.",
     role: "Коуч, частная практика",
-    text: "Евгения — редкий специалист, который одновременно понимает и бизнес-логику, и человеческую психологию. Благодаря сопровождению я выстроила стратегию развития практики, перестала распыляться и увеличила доход вдвое за полгода.",
+    text: "Благодаря сопровождению я выстроила стратегию развития практики, перестала распыляться и увеличила доход вдвое за полгода.",
   },
 ];
 
 const TestimonialCard = ({ t }: { t: (typeof testimonials)[0] }) => (
   <div className="card-premium rounded-lg p-6 md:p-7 flex flex-col h-full">
-    <Quote size={20} strokeWidth={1} className="text-accent/25 mb-4 shrink-0" />
-    <p className="text-sm md:text-[15px] text-foreground/75 leading-[1.75] mb-6 flex-1 italic font-light">
+    <Quote size={20} strokeWidth={1} className="text-accent/30 mb-4 shrink-0" />
+    <p className="text-sm md:text-[15px] text-foreground/70 leading-[1.75] mb-6 flex-1 italic font-light">
       {t.text}
     </p>
     <div className="flex items-center gap-3 pt-5 border-t border-border/40">
-      <div className="w-9 h-9 rounded-md bg-accent/8 flex items-center justify-center">
-        <span className="text-accent font-serif font-semibold text-sm">{t.name[0]}</span>
+      <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center">
+        <span className="text-accent font-bold text-sm">{t.name[0]}</span>
       </div>
       <div className="flex-1">
         <p className="text-sm font-medium text-foreground tracking-tight">{t.name}</p>
@@ -59,11 +59,7 @@ const TestimonialCard = ({ t }: { t: (typeof testimonials)[0] }) => (
 );
 
 const TestimonialsSection = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: "start",
-    containScroll: "trimSnaps",
-    loop: true,
-  });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", containScroll: "trimSnaps", loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
@@ -82,15 +78,12 @@ const TestimonialsSection = () => {
       <div className="container">
         <div className="text-center mb-16 animate-on-scroll">
           <span className="accent-line mx-auto mb-6" />
-          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-5">
-            Отзывы клиентов
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-5">Отзывы клиентов</h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed">
             Реальные истории предпринимателей и руководителей
           </p>
         </div>
 
-        {/* Mobile carousel */}
         <div className="md:hidden animate-on-scroll">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-4">
@@ -101,41 +94,24 @@ const TestimonialsSection = () => {
               ))}
             </div>
           </div>
-
           <div className="flex items-center justify-center gap-4 mt-8">
-            <button
-              onClick={scrollPrev}
-              className="w-10 h-10 rounded-md border border-border/60 flex items-center justify-center text-foreground/60 hover:text-foreground hover:border-border transition-all duration-300"
-              aria-label="Предыдущий отзыв"
-            >
+            <button onClick={scrollPrev} className="w-10 h-10 rounded-md border border-border/60 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-border transition-all duration-300" aria-label="Предыдущий отзыв">
               <ChevronLeft size={16} strokeWidth={1.5} />
             </button>
             <div className="flex gap-1.5">
               {testimonials.map((_, i) => (
-                <span
-                  key={i}
-                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                    i === selectedIndex ? "bg-accent w-4" : "bg-border"
-                  }`}
-                />
+                <span key={i} className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === selectedIndex ? "bg-accent w-4" : "bg-border"}`} />
               ))}
             </div>
-            <button
-              onClick={scrollNext}
-              className="w-10 h-10 rounded-md border border-border/60 flex items-center justify-center text-foreground/60 hover:text-foreground hover:border-border transition-all duration-300"
-              aria-label="Следующий отзыв"
-            >
+            <button onClick={scrollNext} className="w-10 h-10 rounded-md border border-border/60 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-border transition-all duration-300" aria-label="Следующий отзыв">
               <ChevronRight size={16} strokeWidth={1.5} />
             </button>
           </div>
         </div>
 
-        {/* Desktop grid */}
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children">
           {testimonials.map((t, i) => (
-            <div key={i} className="animate-on-scroll">
-              <TestimonialCard t={t} />
-            </div>
+            <div key={i} className="animate-on-scroll"><TestimonialCard t={t} /></div>
           ))}
         </div>
       </div>

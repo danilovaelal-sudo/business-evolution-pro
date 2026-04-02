@@ -28,13 +28,13 @@ const SiteHeader = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/40 py-3"
+          ? "bg-background/90 backdrop-blur-xl border-b border-border/40 py-3"
           : "bg-transparent py-5"
       }`}
     >
       <div className="container flex items-center justify-between">
         <div className="flex flex-col">
-          <span className="font-serif text-xl font-semibold tracking-tight text-foreground">
+          <span className="text-xl font-bold tracking-tight text-foreground">
             Евгения Сергеева
           </span>
           <span className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground/70 font-medium">
@@ -54,7 +54,7 @@ const SiteHeader = () => {
           ))}
           <button
             onClick={() => scrollTo("#contact")}
-            className="btn-premium bg-primary text-primary-foreground px-6 py-2.5 rounded-md text-[13px] font-medium tracking-wide"
+            className="btn-premium bg-accent text-accent-foreground px-6 py-2.5 rounded-md text-[13px] font-semibold tracking-wide"
           >
             Оставить заявку
           </button>
@@ -83,7 +83,7 @@ const SiteHeader = () => {
             ))}
             <button
               onClick={() => scrollTo("#contact")}
-              className="bg-primary text-primary-foreground px-5 py-3.5 rounded-md text-sm font-medium mt-4 tracking-wide"
+              className="bg-accent text-accent-foreground px-5 py-3.5 rounded-md text-sm font-semibold mt-4 tracking-wide"
             >
               Оставить заявку
             </button>
