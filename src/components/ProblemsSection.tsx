@@ -46,7 +46,7 @@ const ProblemsSection = () => (
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 stagger-children">
         {problems.map((p, i) => (
-          <div key={i} className="animate-on-scroll card-premium rounded-lg p-6 md:p-7">
+          <div key={i} className="animate-on-scroll card-premium rounded-lg p-6 md:p-7 transition-shadow duration-500 hover:shadow-[0_0_20px_-4px_hsl(38_65%_55%/0.25),inset_0_0_0_1px_hsl(38_65%_55%/0.15)]">
             <div className="flex items-center gap-3 mb-4">
               <span className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
                 <span className="text-accent font-bold text-sm">{i + 1}</span>
