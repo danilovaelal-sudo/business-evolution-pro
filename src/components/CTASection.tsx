@@ -1,6 +1,5 @@
 import { useState, FormEvent } from "react";
 import { MessageCircle, CheckCircle2, AlertCircle, Loader2, ArrowRight } from "lucide-react";
-import portraitCta from "@/assets/portrait-cta.jpg";
 
 const CTASection = () => {
   const [formData, setFormData] = useState({
@@ -50,7 +49,7 @@ const CTASection = () => {
     if (errors[field]) setErrors((prev) => { const next = { ...prev }; delete next[field]; return next; });
   };
 
-  const inputClasses = "w-full rounded-md border border-border/60 bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-accent/40 focus:ring-1 focus:ring-accent/20 transition-all duration-300";
+  const inputClasses = "w-full rounded-md border border-border/60 bg-secondary/50 px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-accent/40 focus:ring-1 focus:ring-accent/20 transition-all duration-300";
 
   if (status === "success") {
     return (
@@ -58,11 +57,9 @@ const CTASection = () => {
         <div className="container">
           <div className="max-w-xl mx-auto text-center animate-on-scroll">
             <CheckCircle2 size={40} strokeWidth={1.5} className="text-accent mx-auto mb-6" />
-            <h2 className="font-serif text-4xl font-semibold text-foreground mb-4">
-              Заявка отправлена
-            </h2>
+            <h2 className="text-4xl font-bold text-foreground mb-4">Заявка отправлена</h2>
             <p className="text-muted-foreground text-base leading-relaxed">
-              Спасибо за доверие. Я свяжусь с вами в ближайшее время, чтобы обсудить вашу ситуацию.
+              Спасибо за доверие. Я свяжусь с вами в ближайшее время.
             </p>
           </div>
         </div>
@@ -76,7 +73,7 @@ const CTASection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="animate-on-scroll">
             <span className="accent-line mb-6" />
-            <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
               Начните<br />с первого шага
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-[1.75] mb-10 max-w-md">
@@ -87,33 +84,26 @@ const CTASection = () => {
               href="https://t.me/Eugenia_Sergeeva"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 border border-border/60 text-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-secondary/50 transition-all duration-300 mb-10 tracking-wide"
+              className="inline-flex items-center gap-3 border border-border/60 text-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-secondary/50 transition-all duration-300 tracking-wide"
             >
               <MessageCircle size={16} strokeWidth={1.5} />
               Написать в Telegram
             </a>
-            <div className="relative rounded-lg overflow-hidden w-full max-w-sm hidden lg:block aspect-[4/5]">
-              <img
-                src={portraitCta}
-                alt="Евгения Сергеева"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/8 via-transparent to-transparent" />
+
+            {/* Visual element instead of photo */}
+            <div className="hidden lg:block mt-12">
+              <div className="card-premium rounded-lg p-6 max-w-sm">
+                <p className="text-accent text-sm font-semibold mb-2">Бесплатная диагностика</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  30-минутный разговор, на котором разберём вашу ситуацию и определим точки роста
+                </p>
+              </div>
             </div>
           </div>
 
           <div className="animate-on-scroll">
             <form onSubmit={handleSubmit} className="card-premium rounded-lg p-6 md:p-8 space-y-5">
-              <input
-                type="text"
-                name="website"
-                value={honeypot}
-                onChange={(e) => setHoneypot(e.target.value)}
-                className="hidden"
-                tabIndex={-1}
-                autoComplete="off"
-              />
+              <input type="text" name="website" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} className="hidden" tabIndex={-1} autoComplete="off" />
 
               <div>
                 <label className="text-[11px] uppercase tracking-[0.12em] font-medium text-foreground mb-2 block">Имя *</label>
@@ -147,15 +137,14 @@ const CTASection = () => {
                 <label className="flex items-start gap-3 cursor-pointer">
                   <input type="checkbox" checked={formData.consent} onChange={(e) => updateField("consent", e.target.checked)} className="mt-1 rounded border-border/60 accent-accent" />
                   <span className="text-xs text-muted-foreground leading-relaxed">
-                    Я согласен(а) на{" "}
-                    <a href="#privacy" className="underline hover:text-foreground transition-colors">обработку персональных данных</a>
+                    Я согласен(а) на <a href="#privacy" className="underline hover:text-foreground transition-colors">обработку персональных данных</a>
                   </span>
                 </label>
                 {errors.consent && <p className="text-xs text-destructive mt-1.5">{errors.consent}</p>}
               </div>
 
               {status === "error" && (
-                <div className="flex items-center gap-2 text-sm text-destructive bg-destructive/5 rounded-md p-3">
+                <div className="flex items-center gap-2 text-sm text-destructive bg-destructive/10 rounded-md p-3">
                   <AlertCircle size={14} strokeWidth={1.5} />
                   Не удалось отправить заявку. Попробуйте ещё раз или напишите в Telegram.
                 </div>
@@ -164,18 +153,12 @@ const CTASection = () => {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="group w-full btn-premium bg-primary text-primary-foreground px-6 py-4 rounded-md font-medium text-[15px] tracking-wide disabled:opacity-50 flex items-center justify-center gap-3"
+                className="group w-full btn-premium bg-accent text-accent-foreground px-6 py-4 rounded-md font-semibold text-[15px] tracking-wide disabled:opacity-50 flex items-center justify-center gap-3"
               >
                 {status === "loading" ? (
-                  <>
-                    <Loader2 size={16} className="animate-spin" />
-                    Отправка...
-                  </>
+                  <><Loader2 size={16} className="animate-spin" /> Отправка...</>
                 ) : (
-                  <>
-                    Оставить заявку
-                    <ArrowRight size={16} strokeWidth={2} className="transition-transform duration-300 group-hover:translate-x-1" />
-                  </>
+                  <>Оставить заявку <ArrowRight size={16} strokeWidth={2} className="transition-transform duration-300 group-hover:translate-x-1" /></>
                 )}
               </button>
             </form>

@@ -42,7 +42,7 @@ const HelpSection = () => (
         <TypewriterHeading
           as="h2"
           text="С чем я помогаю"
-          className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-5"
+          className="text-4xl md:text-5xl font-bold text-foreground mb-5"
         />
         <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed">
           Три направления в одном сопровождении — для устойчивых изменений
@@ -53,18 +53,15 @@ const HelpSection = () => (
         {columns.map((col) => {
           const Icon = col.icon;
           return (
-            <div
-              key={col.title}
-              className="animate-on-scroll card-premium rounded-lg p-7 md:p-8"
-            >
-              <div className="w-11 h-11 rounded-md bg-accent/8 flex items-center justify-center mb-6">
+            <div key={col.title} className="animate-on-scroll card-premium rounded-lg p-7 md:p-8">
+              <div className="w-11 h-11 rounded-lg bg-accent/10 flex items-center justify-center mb-6">
                 <Icon size={20} strokeWidth={1.5} className="text-accent" />
               </div>
-              <h3 className="font-serif text-2xl font-semibold text-foreground mb-6">{col.title}</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-6">{col.title}</h3>
               <ul className="space-y-3.5">
                 {col.items.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed">
-                    <span className="w-1 h-1 rounded-full bg-accent mt-2 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
                     {item}
                   </li>
                 ))}

@@ -16,7 +16,6 @@ const CursorTrail = () => {
   }, []);
 
   useEffect(() => {
-    // Only on pointer:fine devices
     if (window.matchMedia("(pointer: coarse)").matches) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -53,7 +52,6 @@ const CursorTrail = () => {
       const dy = mouse.current.y - prevMouse.current.y;
       const speed = Math.sqrt(dx * dx + dy * dy);
 
-      // Spawn points based on speed
       const interval = isHovering.current ? 30 : 18;
       if (speed > 1.5 && time - lastSpawn > interval) {
         points.current.push({
@@ -66,14 +64,12 @@ const CursorTrail = () => {
         lastSpawn = time;
       }
 
-      // Limit points
       if (points.current.length > 50) {
         points.current = points.current.slice(-50);
       }
 
       const maxAge = isHovering.current ? 0.6 : 0.9;
 
-      // Draw
       for (let i = points.current.length - 1; i >= 0; i--) {
         const p = points.current[i];
         p.age += 0.012;
@@ -91,26 +87,25 @@ const CursorTrail = () => {
         const eased = life * life;
         const baseSize = isHovering.current ? 4 : 6;
         const size = baseSize * eased;
-        const alpha = eased * 0.18;
+        const alpha = eased * 0.2;
 
-        // Muted brass/champagne glow
+        // Warm brass glow
         ctx.beginPath();
         ctx.arc(p.x, p.y, size + 8, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(36, 25%, 48%, ${alpha * 0.3})`;
+        ctx.fillStyle = `hsla(38, 50%, 55%, ${alpha * 0.3})`;
         ctx.fill();
 
-        // Core dot - deep graphite
+        // Core dot
         ctx.beginPath();
         ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(225, 10%, 28%, ${alpha * 0.8})`;
+        ctx.fillStyle = `hsla(38, 40%, 60%, ${alpha * 0.6})`;
         ctx.fill();
       }
 
-      // Cursor halo on hover
       if (isHovering.current) {
         ctx.beginPath();
         ctx.arc(mouse.current.x, mouse.current.y, 20, 0, Math.PI * 2);
-        ctx.fillStyle = "hsla(36, 25%, 48%, 0.04)";
+        ctx.fillStyle = "hsla(38, 50%, 55%, 0.04)";
         ctx.fill();
       }
 
@@ -128,7 +123,6 @@ const CursorTrail = () => {
     };
   }, [resize]);
 
-  // Don't render on touch devices
   if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) {
     return null;
   }
@@ -137,7 +131,7 @@ const CursorTrail = () => {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 z-[9999] pointer-events-none"
-      style={{ mixBlendMode: "multiply" }}
+      style={{ mixBlendMode: "screen" }}
     />
   );
 };

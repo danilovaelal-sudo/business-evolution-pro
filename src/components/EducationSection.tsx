@@ -26,7 +26,7 @@ const additional = [
 
 const EducationSection = () => (
   <section className="section-padding relative bg-noise" id="education">
-    <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-secondary/50 to-secondary/30 pointer-events-none" />
+    <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-transparent to-secondary/30 pointer-events-none" />
 
     <div className="container relative z-10">
       <div className="text-center mb-16 animate-on-scroll">
@@ -34,7 +34,7 @@ const EducationSection = () => (
         <TypewriterHeading
           as="h2"
           text="Образование и квалификация"
-          className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-5"
+          className="text-4xl md:text-5xl font-bold text-foreground mb-5"
         />
         <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed">
           Фундаментальное образование и постоянное развитие
@@ -42,20 +42,17 @@ const EducationSection = () => (
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
-        {/* Высшее образование */}
         <div className="animate-on-scroll">
           <div className="flex items-center gap-3 mb-6">
-            <span className="w-9 h-9 rounded-md bg-accent/8 flex items-center justify-center">
+            <span className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center">
               <Award size={18} strokeWidth={1.5} className="text-accent" />
             </span>
-            <h3 className="font-serif text-xl font-semibold text-foreground">
-              Высшее образование
-            </h3>
+            <h3 className="text-xl font-bold text-foreground">Высшее образование</h3>
           </div>
           <div className="space-y-4">
             {higher.map((h, i) => (
               <div key={i} className="card-premium rounded-md p-5">
-                <span className="text-[11px] uppercase tracking-[0.12em] font-medium text-accent">{h.years}</span>
+                <span className="text-[11px] uppercase tracking-[0.12em] font-semibold text-accent">{h.years}</span>
                 <p className="text-sm font-semibold text-foreground mt-2">{h.institution}</p>
                 <p className="text-sm text-muted-foreground mt-1">{h.specialty}</p>
               </div>
@@ -63,20 +60,17 @@ const EducationSection = () => (
           </div>
         </div>
 
-        {/* Дополнительное образование */}
         <div className="animate-on-scroll">
           <div className="flex items-center gap-3 mb-6">
-            <span className="w-9 h-9 rounded-md bg-accent/8 flex items-center justify-center">
+            <span className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center">
               <BookMarked size={18} strokeWidth={1.5} className="text-accent" />
             </span>
-            <h3 className="font-serif text-xl font-semibold text-foreground">
-              Дополнительное образование
-            </h3>
+            <h3 className="text-xl font-bold text-foreground">Дополнительное образование</h3>
           </div>
           <div className="space-y-2.5">
             {additional.map((a, i) => (
               <div key={i} className="flex items-start gap-3 card-premium rounded-md px-5 py-3.5">
-                <span className="text-[11px] uppercase tracking-[0.1em] font-medium text-accent whitespace-nowrap mt-0.5 min-w-[65px]">
+                <span className="text-[11px] uppercase tracking-[0.1em] font-semibold text-accent whitespace-nowrap mt-0.5 min-w-[65px]">
                   {a.years}
                 </span>
                 <p className="text-sm text-foreground/80">{a.title}</p>

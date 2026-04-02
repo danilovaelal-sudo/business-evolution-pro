@@ -34,22 +34,20 @@ const faqs = [
 
 const FAQSection = () => (
   <section className="section-padding relative bg-noise" id="faq">
-    <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-secondary/50 to-secondary/30 pointer-events-none" />
+    <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-transparent to-secondary/30 pointer-events-none" />
 
     <div className="container relative z-10">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-14 animate-on-scroll">
           <span className="accent-line mx-auto mb-6" />
-          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-5">
-            Частые вопросы
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-5">Частые вопросы</h2>
         </div>
         <Accordion type="single" collapsible className="space-y-2.5">
           {faqs.map((faq, i) => (
             <AccordionItem
               key={i}
               value={`faq-${i}`}
-              className="animate-on-scroll card-premium rounded-md px-6 data-[state=open]:border-border"
+              className="animate-on-scroll card-premium rounded-md px-6 data-[state=open]:border-accent/20"
               style={{ transitionDelay: `${i * 50}ms` }}
             >
               <AccordionTrigger className="text-sm font-medium text-foreground hover:no-underline py-5 tracking-tight text-left">
