@@ -1,4 +1,5 @@
 /* Landing page */
+import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import SiteHeader from "@/components/SiteHeader";
 import HeroSection from "@/components/HeroSection";
@@ -16,12 +17,15 @@ import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import SiteFooter from "@/components/SiteFooter";
 import CursorTrail from "@/components/CursorTrail";
+import Preloader from "@/components/Preloader";
 
 const Index = () => {
+  const [loading, setLoading] = useState(true);
   useScrollAnimation();
 
   return (
     <div className="min-h-screen bg-background">
+      {loading && <Preloader onComplete={() => setLoading(false)} />}
       <CursorTrail />
       <SiteHeader />
       <HeroSection />
