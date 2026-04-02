@@ -39,9 +39,6 @@ const Index = () => {
       <ProcessSection />
       <MidCTA />
       <BenefitsSection />
-      <div className="section-divider" />
-      <ResultsSection />
-      <div className="section-divider" />
       <AboutSection />
       <div className="section-divider" />
       <EducationSection />
