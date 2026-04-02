@@ -1,5 +1,5 @@
 import { useState, FormEvent } from "react";
-import { MessageCircle, CheckCircle2, AlertCircle, Loader2, ArrowRight } from "lucide-react";
+import { CheckCircle2, AlertCircle, Loader2, ArrowRight } from "lucide-react";
 
 const CTASection = () => {
   const [formData, setFormData] = useState({
