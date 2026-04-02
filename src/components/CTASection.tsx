@@ -158,7 +158,7 @@ const CTASection = () => {
                 {status === "loading" ? (
                   <><Loader2 size={16} className="animate-spin" /> Отправка...</>
                 ) : (
-                  <>Оставить заявку <ArrowRight size={16} strokeWidth={2} className="transition-transform duration-300 group-hover:translate-x-1" /></>
+                  <>Записаться на разбор <ArrowRight size={16} strokeWidth={2} className="transition-transform duration-300 group-hover:translate-x-1" /></>
                 )}
               </button>
             </form>

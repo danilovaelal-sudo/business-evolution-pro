@@ -45,7 +45,7 @@ const HelpSection = () => (
           className="text-4xl md:text-5xl font-bold text-foreground mb-5"
         />
         <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-          Три направления в одном сопровождении — для устойчивых изменений
+          Одно сопровождение — рост бизнеса, команды и вашей энергии
         </p>
       </div>
 

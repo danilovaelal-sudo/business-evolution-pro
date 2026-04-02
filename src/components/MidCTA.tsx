@@ -22,7 +22,7 @@ const MidCTA = () => {
               onClick={scrollToContact}
               className="group btn-premium bg-accent text-accent-foreground px-8 py-4 rounded-md font-semibold text-[15px] tracking-wide hover:opacity-90 transition-all duration-300 inline-flex items-center gap-3"
             >
-              Оставить заявку
+              Записаться на разбор
               <ArrowRight size={16} strokeWidth={2} className="transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </div>
