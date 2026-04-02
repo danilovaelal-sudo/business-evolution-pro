@@ -85,7 +85,7 @@ const SiteHeader = () => {
               onClick={() => scrollTo("#contact")}
               className="bg-accent text-accent-foreground px-5 py-3.5 rounded-md text-sm font-semibold mt-4 tracking-wide"
             >
-              Оставить заявку
+              Записаться на разбор
             </button>
           </div>
         </div>
