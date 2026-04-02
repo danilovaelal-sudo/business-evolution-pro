@@ -57,7 +57,7 @@ const BenefitsSection = () => (
         {benefits.map((b, i) => {
           const Icon = b.icon;
           return (
-            <div key={i} className="animate-on-scroll card-premium rounded-lg p-6 md:p-7 group">
+            <div key={i} className="animate-on-scroll card-premium rounded-lg p-6 md:p-7 group transition-shadow duration-500 hover:shadow-[0_0_20px_-4px_hsl(38_65%_55%/0.25),inset_0_0_0_1px_hsl(38_65%_55%/0.15)]">
               <div className="w-11 h-11 rounded-lg bg-accent/10 flex items-center justify-center mb-5 transition-colors group-hover:bg-accent/15">
                 <Icon size={20} strokeWidth={1.5} className="text-accent" />
               </div>
