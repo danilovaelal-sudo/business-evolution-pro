@@ -13,10 +13,9 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-    <BrowserRouter basename="/business-evolution-pro">
+      <BrowserRouter basename="/business-evolution-pro">
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
